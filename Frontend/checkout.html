@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Checkout - Foodie</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+<header class="navbar">
+
+    <a href="index.html" class="logo">
+        🍔 Foodie
+    </a>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="cart.html">🛒 Cart</a>
+    </nav>
+
+</header>
+
+
+<section class="container checkout-page">
+
+    <div class="checkout-card">
+
+        <h1>📦 Checkout</h1>
+
+        <p class="checkout-subtitle">
+            Complete your order
+        </p>
+
+        <form id="checkoutForm">
+
+            <div class="form-group">
+
+                <label>
+                    Delivery Address
+                </label>
+
+                <textarea
+                    id="deliveryAddress"
+                    placeholder="Enter complete delivery address"
+                    required
+                ></textarea>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    Payment Method
+                </label>
+
+                <select id="paymentMethod">
+
+                    <option value="COD">
+                        Cash on Delivery
+                    </option>
+
+                    <option value="ONLINE">
+                        Online Payment
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div id="checkoutSummary"></div>
+
+
+            <button
+                type="submit"
+                class="primary-btn full-btn">
+
+                Place Order 🚀
+
+            </button>
+
+        </form>
+
+        <div id="checkoutMessage"></div>
+
+    </div>
+
+</section>
+
+
+<script src="js/cart.js"></script>
+
+</body>
+</html>

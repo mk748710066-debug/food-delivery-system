@@ -1,0 +1,1468 @@
+ /* =========================================================
+   🍔 FOODIE - COLORFUL PREMIUM FOOD DELIVERY UI
+   ========================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@500;600;700;800&display=swap');
+
+/* =========================
+   ROOT COLORS
+========================= */
+
+:root {
+    --primary: #ff3d71;
+    --primary-dark: #e91e63;
+    --orange: #ff8a00;
+    --yellow: #ffc107;
+    --purple: #7c3aed;
+    --blue: #2563eb;
+    --cyan: #06b6d4;
+    --green: #16a34a;
+    --red: #ef4444;
+
+    --dark: #171526;
+    --text: #29243d;
+    --muted: #737083;
+
+    --white: #ffffff;
+    --light: #fff8fb;
+    --border: #eee8f3;
+
+    --gradient-main:
+        linear-gradient(135deg, #ff3d71, #ff7a00);
+
+    --gradient-purple:
+        linear-gradient(135deg, #7c3aed, #ec4899);
+
+    --gradient-blue:
+        linear-gradient(135deg, #2563eb, #06b6d4);
+
+    --gradient-food:
+        linear-gradient(135deg, #ff512f, #f09819);
+
+    --gradient-green:
+        linear-gradient(135deg, #16a34a, #06b6d4);
+
+    --shadow:
+        0 12px 35px rgba(55, 35, 80, 0.10);
+
+    --shadow-hover:
+        0 25px 55px rgba(70, 35, 100, 0.18);
+
+    --radius: 22px;
+}
+
+
+/* =========================
+   RESET
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Inter", sans-serif;
+    background:
+        radial-gradient(circle at 10% 10%, #fff0f6, transparent 25%),
+        radial-gradient(circle at 90% 20%, #f0edff, transparent 25%),
+        #fff;
+    color: var(--text);
+    line-height: 1.6;
+}
+
+button,
+input,
+textarea,
+select {
+    font-family: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar {
+    min-height: 76px;
+    padding: 0 6%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background: rgba(255, 255, 255, 0.94);
+    backdrop-filter: blur(20px);
+
+    border-bottom: 2px solid #ffe3ef;
+
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    box-shadow: 0 5px 25px rgba(255, 61, 113, 0.08);
+}
+
+.logo {
+    font-family: "Poppins", sans-serif;
+    font-size: 28px;
+    font-weight: 800;
+
+    background: linear-gradient(
+        90deg,
+        #ff3d71,
+        #ff7a00,
+        #7c3aed
+    );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.navbar nav {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+}
+
+.navbar nav a {
+    font-size: 14px;
+    font-weight: 700;
+    color: #3f3a52;
+
+    transition: 0.25s ease;
+    position: relative;
+}
+
+.navbar nav a:hover {
+    color: var(--primary);
+    transform: translateY(-2px);
+}
+
+.navbar nav a::after {
+    content: "";
+
+    position: absolute;
+    left: 50%;
+    bottom: -8px;
+
+    width: 0;
+    height: 3px;
+
+    background: linear-gradient(
+        90deg,
+        #ff3d71,
+        #ff8a00
+    );
+
+    border-radius: 20px;
+
+    transition: 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.navbar nav a:hover::after {
+    width: 100%;
+}
+
+#cartCount {
+    background: linear-gradient(
+        135deg,
+        #ff3d71,
+        #ff8a00
+    );
+
+    color: white;
+
+    font-size: 11px;
+    font-weight: 800;
+
+    min-width: 21px;
+    height: 21px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    margin-left: 3px;
+
+    box-shadow: 0 4px 12px rgba(255, 61, 113, 0.35);
+}
+
+.logout-btn {
+    border: none;
+
+    background: linear-gradient(
+        135deg,
+        #7c3aed,
+        #ec4899
+    );
+
+    color: white;
+
+    padding: 10px 18px;
+
+    border-radius: 12px;
+
+    font-weight: 700;
+
+    box-shadow: 0 6px 15px rgba(124, 58, 237, 0.25);
+
+    transition: 0.3s;
+}
+
+.logout-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 25px rgba(124, 58, 237, 0.35);
+}
+
+.hidden {
+    display: none !important;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    min-height: 590px;
+
+    display: flex;
+    align-items: center;
+
+    padding: 80px 7%;
+
+    position: relative;
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 85% 25%,
+            rgba(255, 193, 7, 0.65),
+            transparent 18%
+        ),
+        radial-gradient(
+            circle at 70% 80%,
+            rgba(6, 182, 212, 0.40),
+            transparent 25%
+        ),
+        linear-gradient(
+            120deg,
+            #ff1744,
+            #ff4081 35%,
+            #8b5cf6 70%,
+            #2563eb
+        );
+
+    color: white;
+}
+
+
+/* colorful circles */
+
+.hero::before {
+    content: "";
+
+    position: absolute;
+
+    width: 520px;
+    height: 520px;
+
+    border-radius: 50%;
+
+    right: -160px;
+    top: -170px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,0.22),
+            rgba(255,193,7,0.15)
+        );
+
+    border: 2px solid rgba(255,255,255,0.15);
+}
+
+.hero::after {
+    content: "";
+
+    position: absolute;
+
+    width: 400px;
+    height: 400px;
+
+    border-radius: 50%;
+
+    right: 190px;
+    bottom: -270px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(6,182,212,0.25),
+            rgba(124,58,237,0.25)
+        );
+}
+
+.hero-content {
+    max-width: 680px;
+
+    position: relative;
+    z-index: 2;
+
+    animation: heroAppear 0.8s ease;
+}
+
+.hero-badge {
+    display: inline-flex;
+    align-items: center;
+
+    background: rgba(255,255,255,0.18);
+
+    border: 1px solid rgba(255,255,255,0.35);
+
+    padding: 10px 17px;
+
+    border-radius: 50px;
+
+    font-size: 13px;
+    font-weight: 700;
+
+    backdrop-filter: blur(12px);
+
+    margin-bottom: 23px;
+
+    box-shadow: 0 8px 25px rgba(0,0,0,0.10);
+}
+
+.hero h1 {
+    font-family: "Poppins", sans-serif;
+
+    font-size: clamp(42px, 6vw, 72px);
+
+    line-height: 1.04;
+
+    font-weight: 800;
+
+    letter-spacing: -2px;
+
+    margin-bottom: 22px;
+
+    text-shadow:
+        0 8px 25px rgba(0,0,0,0.15);
+}
+
+.hero p {
+    font-size: 18px;
+
+    max-width: 560px;
+
+    opacity: 0.95;
+
+    margin-bottom: 30px;
+}
+
+
+/* =========================
+   BUTTON
+========================= */
+
+.primary-btn {
+    border: none;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff3d71,
+            #ff8a00
+        );
+
+    color: white;
+
+    padding: 13px 22px;
+
+    border-radius: 13px;
+
+    font-size: 14px;
+    font-weight: 800;
+
+    transition: 0.3s ease;
+
+    box-shadow:
+        0 8px 20px rgba(255, 61, 113, 0.25);
+}
+
+.primary-btn:hover {
+    transform: translateY(-4px) scale(1.02);
+
+    background:
+        linear-gradient(
+            135deg,
+            #7c3aed,
+            #ec4899
+        );
+
+    box-shadow:
+        0 15px 30px rgba(124, 58, 237, 0.30);
+}
+
+.hero .primary-btn {
+    background: white;
+
+    color: #ff3d71;
+
+    padding: 15px 28px;
+
+    border-radius: 14px;
+
+    font-size: 15px;
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,0.15);
+}
+
+.hero .primary-btn:hover {
+    background: #fff8fb;
+
+    color: #7c3aed;
+
+    transform: translateY(-4px);
+}
+
+
+/* =========================
+   CONTAINER
+========================= */
+
+.container {
+    width: min(1200px, 90%);
+
+    margin: 0 auto;
+
+    padding: 75px 0;
+}
+
+.section-heading {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: end;
+
+    margin-bottom: 32px;
+}
+
+.small-title {
+    color: #ff3d71;
+
+    font-size: 12px;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+}
+
+.section-heading h2 {
+    font-family: "Poppins", sans-serif;
+
+    font-size: 34px;
+
+    margin-top: 5px;
+
+    color: var(--dark);
+}
+
+.section-heading h2::after {
+    content: "";
+
+    display: block;
+
+    width: 60px;
+    height: 5px;
+
+    margin-top: 9px;
+
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #ff3d71,
+            #ff8a00,
+            #7c3aed
+        );
+}
+
+
+/* =========================
+   GRIDS
+========================= */
+
+.restaurant-grid,
+.food-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 25px;
+}
+
+
+/* =========================
+   CARD
+========================= */
+
+.card {
+    background: white;
+
+    border-radius: var(--radius);
+
+    overflow: hidden;
+
+    border: 1px solid #eee7f1;
+
+    box-shadow:
+        0 8px 25px rgba(50, 30, 80, 0.07);
+
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease;
+
+    position: relative;
+}
+
+.card::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 5px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #ff3d71,
+            #ff8a00,
+            #7c3aed,
+            #06b6d4
+        );
+
+    z-index: 2;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+
+    box-shadow: var(--shadow-hover);
+}
+
+.card img {
+    width: 100%;
+    height: 220px;
+
+    object-fit: cover;
+
+    display: block;
+
+    transition:
+        transform 0.5s ease,
+        filter 0.5s ease;
+}
+
+.card:hover img {
+    transform: scale(1.07);
+
+    filter: saturate(1.15);
+}
+
+.card-content {
+    padding: 21px;
+}
+
+.card h3 {
+    font-family: "Poppins", sans-serif;
+
+    font-size: 19px;
+
+    margin-bottom: 7px;
+
+    color: var(--dark);
+}
+
+.card p {
+    color: var(--muted);
+
+    font-size: 13px;
+
+    margin-bottom: 8px;
+}
+
+.card .primary-btn {
+    margin-top: 12px;
+
+    width: 100%;
+}
+
+.rating {
+    color: #f59e0b !important;
+
+    font-weight: 800;
+}
+
+.price {
+    color: #ff3d71;
+
+    font-size: 22px;
+
+    font-weight: 800;
+
+    margin-top: 10px;
+}
+
+
+/* =========================
+   LOADING
+========================= */
+
+.loading {
+    text-align: center;
+
+    padding: 50px 20px;
+
+    color: var(--muted);
+
+    background: white;
+
+    border-radius: var(--radius);
+
+    border: 2px dashed #ffc2d5;
+
+    box-shadow: var(--shadow);
+}
+
+
+/* =========================
+   ERROR / SUCCESS
+========================= */
+
+.message-error,
+.message-success {
+    padding: 15px 18px;
+
+    border-radius: 13px;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    margin: 15px 0;
+}
+
+.message-error {
+    background: #fff1f2;
+
+    color: #dc2626;
+
+    border: 1px solid #fecdd3;
+
+    box-shadow: 0 8px 20px rgba(239,68,68,0.08);
+}
+
+.message-success {
+    background: #ecfdf5;
+
+    color: #15803d;
+
+    border: 1px solid #bbf7d0;
+
+    box-shadow: 0 8px 20px rgba(22,163,74,0.08);
+}
+
+
+/* =========================
+   AUTH
+========================= */
+
+.auth-page {
+    min-height: calc(100vh - 76px);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 50px 20px;
+
+    background:
+        radial-gradient(
+            circle at 10% 10%,
+            #ffd6e5,
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 90% 80%,
+            #ddd6fe,
+            transparent 30%
+        ),
+        #fff;
+}
+
+.auth-box {
+    width: min(440px, 100%);
+
+    background: rgba(255,255,255,0.96);
+
+    padding: 40px;
+
+    border-radius: 25px;
+
+    box-shadow:
+        0 25px 70px rgba(75, 40, 100, 0.15);
+
+    border: 1px solid #f0e5f4;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+.auth-box::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 6px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #ff3d71,
+            #ff8a00,
+            #7c3aed,
+            #06b6d4
+        );
+}
+
+.auth-box h1 {
+    font-family: "Poppins", sans-serif;
+
+    font-size: 30px;
+
+    margin-bottom: 7px;
+}
+
+.auth-box > p {
+    color: var(--muted);
+
+    margin-bottom: 28px;
+}
+
+.form-group {
+    margin-bottom: 18px;
+}
+
+.form-group label {
+    display: block;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    margin-bottom: 7px;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select,
+.auth-box input,
+.auth-box textarea,
+.auth-box select {
+    width: 100%;
+
+    padding: 13px 15px;
+
+    border: 1px solid #e2d9e8;
+
+    border-radius: 12px;
+
+    outline: none;
+
+    font-size: 14px;
+
+    transition: 0.25s;
+
+    background: #fff;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus,
+.auth-box input:focus,
+.auth-box textarea:focus,
+.auth-box select:focus {
+    border-color: #ff3d71;
+
+    box-shadow:
+        0 0 0 4px rgba(255,61,113,0.10);
+}
+
+.auth-box .primary-btn {
+    width: 100%;
+
+    margin-top: 8px;
+
+    padding: 14px;
+}
+
+
+/* =========================
+   RESTAURANT PAGE
+========================= */
+
+.restaurant-banner {
+    background:
+        radial-gradient(
+            circle at 80% 30%,
+            rgba(255,193,7,0.25),
+            transparent 20%
+        ),
+        linear-gradient(
+            135deg,
+            #7c3aed,
+            #ec4899,
+            #ff3d71
+        );
+
+    color: white;
+
+    padding: 65px 7%;
+}
+
+.restaurant-info {
+    max-width: 1100px;
+
+    margin: auto;
+}
+
+.restaurant-info h1 {
+    font-family: "Poppins", sans-serif;
+
+    font-size: 42px;
+
+    margin-bottom: 10px;
+}
+
+.restaurant-info p {
+    color: #fff;
+
+    opacity: 0.9;
+
+    margin: 6px 0;
+}
+
+
+/* =========================
+   CART
+========================= */
+
+.cart-container {
+    width: min(1100px, 90%);
+
+    margin: auto;
+
+    padding: 70px 0;
+}
+
+.cart-item {
+    display: grid;
+
+    grid-template-columns:
+        90px 1fr auto auto auto;
+
+    align-items: center;
+
+    gap: 20px;
+
+    background: white;
+
+    padding: 15px;
+
+    border-radius: 17px;
+
+    border: 1px solid #eee5f2;
+
+    margin-bottom: 14px;
+
+    transition: 0.25s;
+}
+
+.cart-item:hover {
+    box-shadow: var(--shadow);
+
+    transform: translateY(-3px);
+
+    border-color: #ffc2d5;
+}
+
+.cart-item img {
+    width: 90px;
+    height: 75px;
+
+    object-fit: cover;
+
+    border-radius: 12px;
+}
+
+.cart-item-info h3 {
+    font-size: 16px;
+
+    margin-bottom: 3px;
+}
+
+.cart-item-info p {
+    color: #ff3d71;
+
+    font-weight: 800;
+}
+
+.quantity-controls {
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+}
+
+.quantity-controls button {
+    width: 34px;
+    height: 34px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ffe1eb,
+            #fff0d4
+        );
+
+    color: #ff3d71;
+
+    font-size: 19px;
+
+    font-weight: 800;
+
+    transition: 0.25s;
+}
+
+.quantity-controls button:hover {
+    background:
+        linear-gradient(
+            135deg,
+            #ff3d71,
+            #ff8a00
+        );
+
+    color: white;
+
+    transform: scale(1.08);
+}
+
+.remove-btn {
+    border: none;
+
+    background: #fff1f2;
+
+    color: #dc2626;
+
+    padding: 8px 12px;
+
+    border-radius: 9px;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    transition: 0.2s;
+}
+
+.remove-btn:hover {
+    background: #ef4444;
+
+    color: white;
+}
+
+.cart-summary {
+    background:
+        linear-gradient(
+            135deg,
+            #fff,
+            #fff5f8,
+            #f5f0ff
+        );
+
+    padding: 25px;
+
+    border-radius: 20px;
+
+    box-shadow: var(--shadow);
+
+    margin-top: 25px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    border: 1px solid #f0dbea;
+}
+
+.cart-total {
+    font-size: 25px;
+
+    font-weight: 800;
+
+    background:
+        linear-gradient(
+            90deg,
+            #ff3d71,
+            #7c3aed
+        );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    color: transparent;
+}
+
+
+/* =========================
+   CHECKOUT
+========================= */
+
+.checkout-container {
+    width: min(1000px, 90%);
+
+    margin: auto;
+
+    padding: 70px 0;
+}
+
+.checkout-summary {
+    background:
+        linear-gradient(
+            135deg,
+            #171526,
+            #7c3aed,
+            #ec4899
+        );
+
+    color: white;
+
+    padding: 27px;
+
+    border-radius: 20px;
+
+    margin-bottom: 25px;
+
+    box-shadow:
+        0 15px 35px rgba(124,58,237,0.22);
+}
+
+.checkout-summary h3 {
+    font-family: "Poppins", sans-serif;
+}
+
+.checkout-summary p {
+    color: #f5f3ff;
+
+    padding: 5px 0;
+}
+
+
+/* =========================
+   ORDERS
+========================= */
+
+.orders-container {
+    width: min(1000px, 90%);
+
+    margin: auto;
+
+    padding: 70px 0;
+}
+
+.order-card {
+    background: white;
+
+    padding: 24px;
+
+    border-radius: 19px;
+
+    border: 1px solid #eee5f2;
+
+    margin-bottom: 18px;
+
+    box-shadow:
+        0 6px 20px rgba(50,30,80,0.06);
+
+    transition: 0.25s;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+.order-card::before {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    top: 0;
+
+    width: 6px;
+    height: 100%;
+
+    background:
+        linear-gradient(
+            180deg,
+            #ff3d71,
+            #7c3aed,
+            #06b6d4
+        );
+}
+
+.order-card:hover {
+    box-shadow: var(--shadow);
+
+    transform: translateY(-4px);
+}
+
+.order-card h3 {
+    font-family: "Poppins", sans-serif;
+}
+
+.order-status {
+    display: inline-flex;
+
+    padding: 7px 14px;
+
+    border-radius: 50px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fff0d4,
+            #ffe1eb
+        );
+
+    color: #d97706;
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+    margin-top: 10px;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    background:
+        radial-gradient(
+            circle at 15% 20%,
+            rgba(236,72,153,0.25),
+            transparent 25%
+        ),
+        radial-gradient(
+            circle at 85% 70%,
+            rgba(6,182,212,0.20),
+            transparent 25%
+        ),
+        linear-gradient(
+            135deg,
+            #171526,
+            #31215a,
+            #172554
+        );
+
+    color: white;
+
+    margin-top: 50px;
+}
+
+.footer-content {
+    width: min(1200px, 90%);
+
+    margin: auto;
+
+    padding: 55px 0;
+
+    text-align: center;
+}
+
+.footer-content h2 {
+    font-family: "Poppins", sans-serif;
+
+    font-size: 30px;
+
+    margin-bottom: 8px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #ff3d71,
+            #ffcc00,
+            #06b6d4
+        );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    color: transparent;
+}
+
+.footer-content p {
+    color: #d4d4d8;
+
+    font-size: 13px;
+
+    margin: 5px;
+}
+
+
+/* =========================
+   ANIMATIONS
+========================= */
+
+@keyframes fadeUp {
+
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+@keyframes heroAppear {
+
+    from {
+        opacity: 0;
+        transform: translateX(-35px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+}
+
+.card {
+    animation: fadeUp 0.55s ease both;
+}
+
+
+/* =========================
+   SCROLLBAR
+========================= */
+
+::-webkit-scrollbar {
+    width: 9px;
+}
+
+::-webkit-scrollbar-track {
+    background: #fff0f6;
+}
+
+::-webkit-scrollbar-thumb {
+    background:
+        linear-gradient(
+            180deg,
+            #ff3d71,
+            #7c3aed,
+            #06b6d4
+        );
+
+    border-radius: 20px;
+}
+
+
+/* =========================
+   MOBILE TABLET
+========================= */
+
+@media (max-width: 900px) {
+
+    .restaurant-grid,
+    .food-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .navbar {
+        padding: 0 4%;
+    }
+
+    .navbar nav {
+        gap: 15px;
+    }
+
+    .navbar nav a {
+        font-size: 12px;
+    }
+
+    .hero {
+        min-height: 500px;
+
+        padding: 60px 6%;
+    }
+
+    .hero h1 {
+        font-size: 48px;
+    }
+
+    .cart-item {
+        grid-template-columns: 75px 1fr;
+    }
+
+    .quantity-controls,
+    .cart-item > strong,
+    .remove-btn {
+        grid-column: 2;
+    }
+
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+
+    .navbar {
+        height: auto;
+
+        min-height: 70px;
+
+        flex-direction: column;
+
+        gap: 12px;
+
+        padding: 15px;
+    }
+
+    .navbar nav {
+        flex-wrap: wrap;
+
+        justify-content: center;
+    }
+
+    .hero {
+        min-height: 470px;
+
+        padding: 50px 6%;
+    }
+
+    .hero h1 {
+        font-size: 39px;
+
+        letter-spacing: -1px;
+    }
+
+    .hero p {
+        font-size: 15px;
+    }
+
+    .container {
+        padding: 50px 0;
+    }
+
+    .section-heading h2 {
+        font-size: 25px;
+    }
+
+    .restaurant-grid,
+    .food-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .card img {
+        height: 230px;
+    }
+
+    .auth-box {
+        padding: 28px 22px;
+    }
+
+    .restaurant-info h1 {
+        font-size: 32px;
+    }
+
+    .cart-summary {
+        flex-direction: column;
+
+        align-items: stretch;
+
+        gap: 18px;
+    }
+
+    .cart-total {
+        font-size: 21px;
+    }
+
+    .cart-item {
+        grid-template-columns: 70px 1fr;
+    }
+
+    .cart-item img {
+        width: 70px;
+
+        height: 65px;
+    }
+
+}

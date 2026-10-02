@@ -1,0 +1,81 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foodie - Food Delivery</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<header class="navbar">
+    <a href="index.html" class="logo">🍔 Foodie</a>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="cart.html">🛒 Cart <span id="cartCount">0</span></a>
+        <a href="orders.html">Orders</a>
+        <a href="login.html" id="loginLink">Login</a>
+        <a href="register.html" id="registerLink">Register</a>
+        <button class="logout-btn hidden" id="logoutBtn" onclick="logout()">Logout</button>
+    </nav>
+</header>
+
+<section class="hero">
+    <div class="hero-content">
+        <span class="hero-badge">🔥 Fast & Fresh Delivery</span>
+
+        <h1>
+            Delicious Food,
+            <br>
+            Delivered Fast 🚀
+        </h1>
+
+        <p>
+            Order your favourite food from the best restaurants around you.
+        </p>
+
+        <button class="primary-btn" onclick="scrollToFood()">
+            Order Now 🍴
+        </button>
+    </div>
+</section>
+
+<section class="container">
+    <div class="section-heading">
+        <div>
+            <span class="small-title">EXPLORE</span>
+            <h2>Popular Restaurants</h2>
+        </div>
+    </div>
+
+    <div id="restaurants" class="restaurant-grid">
+        <div class="loading">Loading restaurants...</div>
+    </div>
+</section>
+
+<section class="container" id="food-section">
+    <div class="section-heading">
+        <div>
+            <span class="small-title">OUR MENU</span>
+            <h2>Popular Food</h2>
+        </div>
+    </div>
+
+    <div id="foods" class="food-grid">
+        <div class="loading">Loading food...</div>
+    </div>
+</section>
+
+ <footer>
+    <div class="footer-content">
+        <h2>🍔 Foodie</h2>
+        <p>Delicious food delivered to your doorstep.</p>
+        <p>© 2026 Foodie Food Delivery</p>
+    </div>
+</footer>
+
+<script src="/js/app.js"></script>
+
+</body>
+</html>

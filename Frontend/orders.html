@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>My Orders - Foodie</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+<header class="navbar">
+
+    <a href="index.html" class="logo">
+        🍔 Foodie
+    </a>
+
+    <nav>
+
+        <a href="index.html">
+            Home
+        </a>
+
+        <a href="cart.html">
+            🛒 Cart
+        </a>
+
+        <button
+            class="logout-btn"
+            onclick="logout()">
+
+            Logout
+
+        </button>
+
+    </nav>
+
+</header>
+
+
+<section class="container">
+
+    <div class="section-heading">
+
+        <div>
+
+            <span class="small-title">
+                ORDER HISTORY
+            </span>
+
+            <h2>
+                📦 My Orders
+            </h2>
+
+        </div>
+
+    </div>
+
+
+    <div id="ordersList">
+
+        <div class="loading">
+            Loading orders...
+        </div>
+
+    </div>
+
+</section>
+
+
+<script src="js/auth.js"></script>
+
+</body>
+</html>
